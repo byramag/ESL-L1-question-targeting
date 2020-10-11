@@ -1,0 +1,6 @@
+# paddlepaddle-gpu
+paddlepaddle
+paddle-ernie
+paddle-propeller
+
+# used in notebooks: 
