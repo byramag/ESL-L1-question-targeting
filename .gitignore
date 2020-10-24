@@ -1,3 +1,16 @@
+# Ernie project code
 ERNIE
+ernie_gen_result/
 model*
+
+# ProphetNet testing not being pushed
+ProphetNetTesting/
+
+# Skipping upload of large datasets
+data/chinese/dureader
+data/squad
+*.pdparams
+
+# Environment files
 venv
+*__pycache__
