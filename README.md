@@ -26,3 +26,6 @@ https://aistudio.baidu.com/aistudio/projectdetail/433491
 These reading comprehension passages are relatively short and at a beginner/intermediate reading level and cover a wide range of context domains. The sample passages from the source website contain some human created questions which can be used as a comparison tool for the generated questions.
 
 More test data will be added as needed to test performance on for higher difficulty and longer passages. Future work: robust testing using Stanford NLP groups SQuAD 1.1 dataset: https://rajpurkar.github.io/SQuAD-explorer/explore/1.1/dev/ 
+
+## To run code in GCP Cloud Run
+[![Run on Google Cloud](https://storage.googleapis.com/cloudrun/button.svg)](https://console.cloud.google.com/cloudshell/editor?shellonly=true&cloudshell_image=gcr.io/cloudrun/button&cloudshell_git_repo=[https://github.com/byramag/esl-question-generator])
