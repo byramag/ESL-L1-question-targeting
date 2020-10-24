@@ -6,4 +6,4 @@ COPY . /app
 WORKDIR /app
 RUN pip install -r requirements.txt
 ENTRYPOINT ["python"]
-CMD ["flask_app/question_api/main.py"]
+CMD ["question_api.py"]
