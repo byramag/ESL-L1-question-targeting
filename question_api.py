@@ -1,5 +1,5 @@
 #main.py
-import json, re
+import json, re, os
 from flask import Flask, jsonify, request, abort
 
 app = Flask(__name__)
@@ -72,9 +72,10 @@ def get_questions():
         "Questions": filtered_questions
     })
 
+port = int(os.environ.get('PORT', 8080))
 if __name__ == '__main__':
     global questions
-    with open('../data/squad_small.json') as question_file:
+    with open('data/squad_small.json') as question_file:
         questions = json.load(question_file)
     
-    app.run()
+    app.run(threaded=True, host='0.0.0.0', port=port)
