@@ -4,8 +4,9 @@ from flask import Flask, jsonify, request, abort
 
 app = Flask(__name__)
 
-def l1_target_filter(questions_obj):
-    print("TODO: questions ranking here")
+def l1_target_filter(questions_obj, l1_target=None):
+    if l1_target:
+        print("TODO: questions ranking here")
     all_questions = []
     for para in questions_obj:
         all_questions += para['qas']
@@ -63,8 +64,7 @@ def get_questions():
     passage = [paragraph['context'] for paragraph in all_questions]
 
     # Main logic for ranking by L1 input
-    if l1_target:
-        filtered_questions = l1_target_filter(all_questions)
+    filtered_questions = l1_target_filter(all_questions, l1_target)
     if num_questions: filtered_questions = filtered_questions[:num_questions]
 
     return jsonify({
