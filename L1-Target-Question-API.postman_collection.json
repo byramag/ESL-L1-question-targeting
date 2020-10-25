@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "5cea5ed1-5c21-423d-9e24-f638ef86c70c",
+		"name": "L1-Target-Question-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GCP Get Passage List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "This endpoint returns all available reading comprehension topics available when calling the API from GCP (recommended)."
+			},
+			"response": []
+		},
+		{
+			"name": "Local Get Passage List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "This endpoint returns all available reading comprehension topics available when running the API locally."
+			},
+			"response": []
+		},
+		{
+			"name": "GCP Get Passage By Length",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Title\": \"French_and_Indian_War\",\r\n    \"NumParagraphs\": 20000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/passage",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"passage"
+					]
+				},
+				"description": "This endpoint returns a reading comprehension text passage when given a topic title and the number of paragraphs desired (or all paragraphs if no number given) when calling the API from GCP (recommended)."
+			},
+			"response": []
+		},
+		{
+			"name": "Local Get Passage By Length",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Title\": \"French_and_Indian_War\",\r\n    \"NumParagraphs\": 20000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/passage",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"passage"
+					]
+				},
+				"description": "This endpoint returns a reading comprehension text passage when given a topic title and the number of paragraphs desired (or all paragraphs if no number given) when running the API locally."
+			},
+			"response": []
+		},
+		{
+			"name": "GCP Get Questions with L1 Filter",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Title\": \"French_and_Indian_War\",\r\n    \"NumParagraphs\": 20000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/passage",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"passage"
+					]
+				},
+				"description": "This endpoint returns a reading comprehension text passage and a set of questions and metadata on that passage when given a topic title, the number of paragraphs desired, and a specific native language (L1) to target with the questions when calling the API from GCP (recommended)."
+			},
+			"response": []
+		},
+		{
+			"name": "Local Get Questions with L1 Filter",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Title\": \"French_and_Indian_War\",\r\n    \"NumParagraphs\": 20000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/passage",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"passage"
+					]
+				},
+				"description": "This endpoint returns a reading comprehension text passage and a set of questions and metadata on that passage when given a topic title, the number of paragraphs desired, and a specific native language (L1) to target with the questions when running the API locally."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "135acccd-80f9-4f7f-ae10-fc17954d05a4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "d0f2ba0d-3199-4e52-b383-8f981e90673c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "aa99fb00-26ae-4290-b9fb-5e2a08a03ff1",
+			"key": "local_base_url",
+			"value": ""
+		},
+		{
+			"id": "1add4067-a395-4c7f-96cd-f0db0a5522d8",
+			"key": "gcp_base_url",
+			"value": ""
+		}
+	],
+	"protocolProfileBehavior": {}
+}
