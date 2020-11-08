@@ -2,15 +2,32 @@
 import json, re, os
 from flask import Flask, jsonify, request, abort
 
+from question_rank import QuestionRanker
+
 app = Flask(__name__)
+ranker = QuestionRanker('Spanish')
 
 def l1_target_filter(questions_obj, l1_target=None):
+    ranked = []
     if l1_target:
-        print("TODO: questions ranking here")
-    all_questions = []
+        try:
+            if l1_target.lower() != ranker.l1:
+                ranker.swap_l1(l1_target)
+            ranked = ranker.rank(questions_obj)
+            print(f"last q after rank is {ranked[-1]['question']}")
+            return ranked
+        except ValueError:
+            print(f"L1 {l1_target} not recognized")
     for para in questions_obj:
-        all_questions += para['qas']
-    return all_questions
+        for q in para['qas']:
+            if not q['is_impossible']:
+                ranked.append({
+                    "context": para['context'],
+                    "question": q['question'],
+                    "answer": q['answers'][0]['text'],
+                    "answer_index": q['answers'][0]['answer_start']
+                })
+    return ranked
 
 @app.errorhandler(404)
 def title_not_found(e):
