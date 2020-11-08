@@ -160,7 +160,10 @@ class QuestionRanker():
         en_pos = en_pos[:len(l1_pos)]
             
         diffs = [1 for l1, en in zip(l1_pos, en_pos) if l1 == en]
-        ca_score = 1 - (sum(diffs) / len(l1_pos))
+        try: # TODO when and why would len(l1_pos) == 0?
+            ca_score = 1 - (sum(diffs) / len(l1_pos))
+        except ZeroDivisionError as e:
+            ca_score = 0
         return ca_score
 
     def contrastive_sem_sim(self, en_doc, l1_doc):
