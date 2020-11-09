@@ -4,6 +4,7 @@ RUN apt-get update -y
 RUN apt-get install -y python-pip python-dev build-essential
 COPY . /app
 WORKDIR /app
+RUN pip uninstall googletrans
 RUN pip install -r requirements.txt
 
 # # Multi language Spacy models
