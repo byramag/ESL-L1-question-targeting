@@ -65,7 +65,9 @@ class QuestionRanker():
                 sent_scores.append([
                     self.contrastive_word_order(en_sent, l1_sent),
                     self.contrastive_sem_sim(en_sent, l1_sent),
-                    # self.contrastive_verb_analysis(en_sent, l1_sent)
+                    self.contrastive_verb_analysis(en_sent, l1_sent),
+                    self.contrastive_dependency_parse(en_sent, l1_sent),
+                    # self.contrastive_ner(en_sent, l1_sent)
                 ])
             sent_score_avgs = []
             for feature in range(len(sent_scores[0])): # for each feature
@@ -81,7 +83,9 @@ class QuestionRanker():
                 question_scores[i].append([
                     self.contrastive_word_order(en_question_doc, l1_question_doc),
                     self.contrastive_sem_sim(en_question_doc, l1_question_doc),
-                    # self.contrastive_verb_analysis(en_question_doc, l1_question_doc)
+                    self.contrastive_verb_analysis(en_question_doc, l1_question_doc),
+                    self.contrastive_dependency_parse(en_question_doc, l1_question_doc),
+                    # self.contrastive_ner(en_question_doc, l1_question_doc)
                 ])
             i += 1
         ranked_question_obj = self.build_response(questions, context_scores, question_scores)
@@ -175,16 +179,60 @@ class QuestionRanker():
         return sim
 
     def contrastive_verb_analysis(self, en_doc, l1_doc):
-        return 1
+        en_verb_sim, l1_verb_sim = 0, 0
+        # get en verb and lemma similarity
+        for token in en_doc:
+            if token.pos_ == 'VERB':
+                en_verb_sim = token.similarity(self.en_model(token.lemma_))
+        # get l1 verb and lemma similarity
+        for token in l1_doc:
+            if token.pos_ == 'VERB':
+                l1_verb_sim = token.similarity(self.l1_model(token.lemma_))
+        return abs(l1_verb_sim - en_verb_sim) / 2
 
     def contrastive_dependency_parse(self, en_doc, l1_doc):
-        return 1
+        en_svo_positions = [-1,-1,-1]
+        l1_svo_positions = [-1,-1,-1]
+        # get distances between subj/obj/root
+        i, j = 0, 0
+        for token in en_doc:
+            if token.dep_.upper() == 'ROOT':
+                en_svo_positions[0] = i
+            elif token.dep_.upper() in ['SUBJ', 'NSUBJ']:
+                en_svo_positions[1] = i
+            elif token.dep_.upper() in ['OBJ', 'DOBJ']:
+                en_svo_positions[2] = i
+            i += 1
+        for token in l1_doc:
+            if token.dep_.upper() == 'ROOT':
+                l1_svo_positions[0] = j
+            elif token.dep_.upper() in ['SUBJ', 'NSUBJ']:
+                l1_svo_positions[1] = j
+            elif token.dep_.upper() in ['OBJ', 'DOBJ']:
+                l1_svo_positions[2] = j
+            j += 1
+        diffs = [
+            abs(en_svo_positions[0] - l1_svo_positions[0]),
+            abs(en_svo_positions[1] - l1_svo_positions[1]),
+            abs(en_svo_positions[2] - l1_svo_positions[2])
+        ]
+        return (sum(diffs)/3) / len(en_doc)
 
     def contrastive_ner(self, en_doc, l1_doc):
-        return 1
+        num_matched_ents = 0
+        en_ent_labels = []
+        for en_ent in en_doc.ents:
+            en_ent_labels.append(en_ent.label_)
+        for l1_ent in l1_doc.ents:
+            if l1_ent.label_ in en_ent_labels:
+                num_matched_ents += 1
+        print(f"ner en labels {en_ent_labels} match total {num_matched_ents}")
+        if en_ent_labels:
+            return num_matched_ents / len(en_ent_labels)
+        return 0
 
 if __name__ == "__main__":
-    ranker = QuestionRanker('spanish')
+    ranker = QuestionRanker('chinese')
     with open('data/squad_small.json') as question_file:
         questions = json.load(question_file)
     
@@ -197,4 +245,6 @@ if __name__ == "__main__":
 
     print('starting rank')
     ranked = ranker.rank(immune_system)
+    with open('out.json', 'w') as outfile:
+        json.dump(outfile)
     # print(ranked)
