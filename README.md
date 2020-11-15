@@ -15,10 +15,10 @@ This contrastive score is in the range from 0 to 1 and denotes how difficult the
 To calculate this score, this system utilizes the Google Translate API to translate the question and surrounding context into the given L1. Both versions of the text have linguistic features extracted using the pre-trained language models from SpaCy and the system uses these to perform the linguistic analyses described below. All of the features are then averaged to gain the total contrastive score for that question.
 
 ### Linguistic Features for Contrastive Scoring
-- Part of Speech Word Ordering
-- Semantic Similarity
-- Verb Form Analysis
-- Dependency Distance
+- Part of Speech Word Ordering: Compare the part of speech for the words at each position in the sentence between English and L1. This will provide a metric for how the words are reordered during translation.
+- Semantic Similarity: Using word embeddings of the sentences in each language, get the semantic similarity metric between the languages. This will measure a general representation on how the word meanings in the sentence fit into their respective languages in context.
+- Verb Form Analysis: A simple metric to determine the difference in verb conjugation between languages. This is performed by getting the lemma (word root) of the main verb in the sentence and comparing this difference across languages.
+- Dependency Distance: This feature uses the dependency parsing information in the sentence to determine the sentence root, subject, and object. The difference in positions of these words in the sentence are then compared between languages. This will measure the ordering of SVO vs. SOV etc.
 
 ## Architecture
 Architecture is broken into two components: Web UI front end hosted with Google Cloud Platform (GCP) App Engine, and a backend API hosted with GCP Cloud Run. Both components are written in Python Flask

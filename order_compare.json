@@ -181,7 +181,7 @@
             "ranking_metadata": []
         }
     ],
-    "spanish": [
+    "spanish_woss": [
         {
             "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
             "question": "The immune system protects organisms against what?",
@@ -387,7 +387,7 @@
             }
         }
     ],
-    "french": [
+    "french_woss": [
         {
             "context": "Disorders of the immune system can result in autoimmune diseases, inflammatory diseases and cancer. Immunodeficiency occurs when the immune system is less active than normal, resulting in recurring and life-threatening infections. In humans, immunodeficiency can either be the result of a genetic disease such as severe combined immunodeficiency, acquired conditions such as HIV/AIDS, or the use of immunosuppressive medication. In contrast, autoimmunity results from a hyperactive immune system attacking normal tissues as if they were foreign organisms. Common autoimmune diseases include Hashimoto's thyroiditis, rheumatoid arthritis, diabetes mellitus type 1, and systemic lupus erythematosus. Immunology covers the study of all aspects of the immune system.",
             "question": "What field involves the study of the immune system?",
@@ -569,7 +569,7 @@
             "ranking_metadata": []
         }
     ],
-    "chinese": [
+    "chinese_woss": [
         {
             "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
             "question": "What are the two major subsystems of the immune system?",
@@ -751,7 +751,7 @@
             "ranking_metadata": []
         }
     ],
-    "japanese": [
+    "japanese_woss": [
         {
             "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
             "question": "What is the immune system of the brained known as?",
@@ -933,7 +933,7 @@
             "ranking_metadata": []
         }
     ],
-    "api_spanish": [
+    "api_spanish_woss": [
         {
             "answer": "HIV/AIDS",
             "answer_index": 375,
@@ -1139,7 +1139,7 @@
             }
         }
     ],
-    "api_french": [
+    "api_french_woss": [
         {
             "answer": "HIV/AIDS",
             "answer_index": 375,
@@ -1345,7 +1345,7 @@
             }
         }
     ],
-    "api_chinese": [
+    "api_chinese_woss": [
         {
             "answer": "autoimmunity",
             "answer_index": 442,
@@ -1551,7 +1551,7 @@
             }
         }
     ],
-    "api_japanese": [
+    "api_japanese_woss": [
         {
             "answer": "pathogens",
             "answer_index": 210,
@@ -1753,6 +1753,1022 @@
                 "question_scores": [
                     0.375,
                     0.5306966916405218
+                ]
+            }
+        }
+    ],
+    "api_spanish": [
+        {
+            "answer": "pathogens",
+            "answer_index": 210,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "What are the agents detected by the immune system called?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.5918896321070235,
+                    0.4697747004684061,
+                    0.026584292240449905,
+                    0.17000077808901337
+                ],
+                "contrastive_score": 0.41343018323833647,
+                "question_scores": [
+                    0.75,
+                    0.5095149819515588,
+                    0.24422253559569468,
+                    0.5454545454545454
+                ]
+            }
+        },
+        {
+            "answer": "HIV/AIDS",
+            "answer_index": 375,
+            "context": "Disorders of the immune system can result in autoimmune diseases, inflammatory diseases and cancer. Immunodeficiency occurs when the immune system is less active than normal, resulting in recurring and life-threatening infections. In humans, immunodeficiency can either be the result of a genetic disease such as severe combined immunodeficiency, acquired conditions such as HIV/AIDS, or the use of immunosuppressive medication. In contrast, autoimmunity results from a hyperactive immune system attacking normal tissues as if they were foreign organisms. Common autoimmune diseases include Hashimoto's thyroiditis, rheumatoid arthritis, diabetes mellitus type 1, and systemic lupus erythematosus. Immunology covers the study of all aspects of the immune system.",
+            "question": "What acquired condition results in immunodeficiency in humans?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.5625,
+                    0.4791422360576689,
+                    0.05175554307008016,
+                    0.15014978213507627
+                ],
+                "contrastive_score": 0.3899340481929725,
+                "question_scores": [
+                    1.0,
+                    0.5420082720048663,
+                    0.0005832189427550927,
+                    0.3333333333333333
+                ]
+            }
+        },
+        {
+            "answer": "pathogens",
+            "answer_index": 210,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "What are the agents the immune system detects known as?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.5918896321070235,
+                    0.4697747004684061,
+                    0.026584292240449905,
+                    0.17000077808901337
+                ],
+                "contrastive_score": 0.37828350536539546,
+                "question_scores": [
+                    0.7142857142857143,
+                    0.49306216016164894,
+                    0.16673137163151344,
+                    0.3939393939393939
+                ]
+            }
+        },
+        {
+            "answer": "disease",
+            "answer_index": 115,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "The immune system protects organisms against what?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.5918896321070235,
+                    0.4697747004684061,
+                    0.026584292240449905,
+                    0.17000077808901337
+                ],
+                "contrastive_score": 0.34723439873398065,
+                "question_scores": [
+                    0.8333333333333334,
+                    0.5153875557595322,
+                    0.004238231207419674,
+                    0.16666666666666666
+                ]
+            }
+        },
+        {
+            "answer": "innate immune system versus the adaptive immune system",
+            "answer_index": 397,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "What are the two major subsystems of the immune system?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.5918896321070235,
+                    0.4697747004684061,
+                    0.026584292240449905,
+                    0.17000077808901337
+                ],
+                "contrastive_score": 0.3456197766985789,
+                "question_scores": [
+                    0.625,
+                    0.48946644776792436,
+                    0.14981812049157178,
+                    0.2424242424242424
+                ]
+            }
+        },
+        {
+            "answer": "neuroimmune system",
+            "answer_index": 655,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "What is the immune system of the brained known as?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.5918896321070235,
+                    0.4697747004684061,
+                    0.026584292240449905,
+                    0.17000077808901337
+                ],
+                "contrastive_score": 0.3410001541830233,
+                "question_scores": [
+                    0.7142857142857143,
+                    0.528067729489688,
+                    0.04558020496570972,
+                    0.18181818181818182
+                ]
+            }
+        },
+        {
+            "answer": "Immunodeficiency",
+            "answer_index": 100,
+            "context": "Disorders of the immune system can result in autoimmune diseases, inflammatory diseases and cancer. Immunodeficiency occurs when the immune system is less active than normal, resulting in recurring and life-threatening infections. In humans, immunodeficiency can either be the result of a genetic disease such as severe combined immunodeficiency, acquired conditions such as HIV/AIDS, or the use of immunosuppressive medication. In contrast, autoimmunity results from a hyperactive immune system attacking normal tissues as if they were foreign organisms. Common autoimmune diseases include Hashimoto's thyroiditis, rheumatoid arthritis, diabetes mellitus type 1, and systemic lupus erythematosus. Immunology covers the study of all aspects of the immune system.",
+            "question": "What happens when the immune system less active than normal?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.5625,
+                    0.4791422360576689,
+                    0.05175554307008016,
+                    0.15014978213507627
+                ],
+                "contrastive_score": 0.3361343036667231,
+                "question_scores": [
+                    0.7777777777777778,
+                    0.48606958799285926,
+                    0.15137647199729176,
+                    0.0303030303030303
+                ]
+            }
+        },
+        {
+            "answer": "humoral immunity versus cell-mediated immunity",
+            "answer_index": 456,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "What are the two different types of immunity?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.5918896321070235,
+                    0.4697747004684061,
+                    0.026584292240449905,
+                    0.17000077808901337
+                ],
+                "contrastive_score": 0.32884509666399664,
+                "question_scores": [
+                    0.4285714285714286,
+                    0.49782552504778355,
+                    0.14981812049157178,
+                    0.2962962962962963
+                ]
+            }
+        },
+        {
+            "answer": "blood–brain barrier, blood–cerebrospinal fluid barrier",
+            "answer_index": 519,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "What separates the neuroimmune system and peripheral immune system in humans?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.5918896321070235,
+                    0.4697747004684061,
+                    0.026584292240449905,
+                    0.17000077808901337
+                ],
+                "contrastive_score": 0.30764921284194724,
+                "question_scores": [
+                    0.4,
+                    0.495608522066594,
+                    0.08511355554186859,
+                    0.2222222222222222
+                ]
+            }
+        },
+        {
+            "answer": "autoimmunity",
+            "answer_index": 442,
+            "context": "Disorders of the immune system can result in autoimmune diseases, inflammatory diseases and cancer. Immunodeficiency occurs when the immune system is less active than normal, resulting in recurring and life-threatening infections. In humans, immunodeficiency can either be the result of a genetic disease such as severe combined immunodeficiency, acquired conditions such as HIV/AIDS, or the use of immunosuppressive medication. In contrast, autoimmunity results from a hyperactive immune system attacking normal tissues as if they were foreign organisms. Common autoimmune diseases include Hashimoto's thyroiditis, rheumatoid arthritis, diabetes mellitus type 1, and systemic lupus erythematosus. Immunology covers the study of all aspects of the immune system.",
+            "question": "What is the term for a hyperactive immune system that attacks normal tissues?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.5625,
+                    0.4791422360576689,
+                    0.05175554307008016,
+                    0.15014978213507627
+                ],
+                "contrastive_score": 0.2989515027396476,
+                "question_scores": [
+                    0.4,
+                    0.513795180852733,
+                    0.11522166075400314,
+                    0.11904761904761905
+                ]
+            }
+        },
+        {
+            "answer": "Immunology",
+            "answer_index": 698,
+            "context": "Disorders of the immune system can result in autoimmune diseases, inflammatory diseases and cancer. Immunodeficiency occurs when the immune system is less active than normal, resulting in recurring and life-threatening infections. In humans, immunodeficiency can either be the result of a genetic disease such as severe combined immunodeficiency, acquired conditions such as HIV/AIDS, or the use of immunosuppressive medication. In contrast, autoimmunity results from a hyperactive immune system attacking normal tissues as if they were foreign organisms. Common autoimmune diseases include Hashimoto's thyroiditis, rheumatoid arthritis, diabetes mellitus type 1, and systemic lupus erythematosus. Immunology covers the study of all aspects of the immune system.",
+            "question": "What field involves the study of the immune system?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.5625,
+                    0.4791422360576689,
+                    0.05175554307008016,
+                    0.15014978213507627
+                ],
+                "contrastive_score": 0.2892212106012516,
+                "question_scores": [
+                    0.33333333333333337,
+                    0.5232114522692506,
+                    0.08034400461126984,
+                    0.13333333333333333
+                ]
+            }
+        },
+        {
+            "answer": "neuroimmune system",
+            "answer_index": 655,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "Which part of the immune system protects the brain?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.5918896321070235,
+                    0.4697747004684061,
+                    0.026584292240449905,
+                    0.17000077808901337
+                ],
+                "contrastive_score": 0.2677388239051668,
+                "question_scores": [
+                    0.33333333333333337,
+                    0.5127562904623552,
+                    0.004238231207419674,
+                    0.03333333333333333
+                ]
+            }
+        }
+    ],
+    "api_french": [
+        {
+            "answer": "HIV/AIDS",
+            "answer_index": 375,
+            "context": "Disorders of the immune system can result in autoimmune diseases, inflammatory diseases and cancer. Immunodeficiency occurs when the immune system is less active than normal, resulting in recurring and life-threatening infections. In humans, immunodeficiency can either be the result of a genetic disease such as severe combined immunodeficiency, acquired conditions such as HIV/AIDS, or the use of immunosuppressive medication. In contrast, autoimmunity results from a hyperactive immune system attacking normal tissues as if they were foreign organisms. Common autoimmune diseases include Hashimoto's thyroiditis, rheumatoid arthritis, diabetes mellitus type 1, and systemic lupus erythematosus. Immunology covers the study of all aspects of the immune system.",
+            "question": "What acquired condition results in immunodeficiency in humans?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.6120937885643768,
+                    0.4860543019700951,
+                    0.0846385418172726,
+                    0.21043222844693432
+                ],
+                "contrastive_score": 0.4026561873095284,
+                "question_scores": [
+                    1.0,
+                    0.5176368194348802,
+                    0.1252086330574833,
+                    0.1851851851851852
+                ]
+            }
+        },
+        {
+            "answer": "blood–brain barrier, blood–cerebrospinal fluid barrier",
+            "answer_index": 519,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "What separates the neuroimmune system and peripheral immune system in humans?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.4226689976689977,
+                    0.49209885200252756,
+                    0.14989981870406538,
+                    0.25201525054466234
+                ],
+                "contrastive_score": 0.3823926605409509,
+                "question_scores": [
+                    0.8,
+                    0.4997279602954179,
+                    0.27606373844526955,
+                    0.16666666666666666
+                ]
+            }
+        },
+        {
+            "answer": "Immunodeficiency",
+            "answer_index": 100,
+            "context": "Disorders of the immune system can result in autoimmune diseases, inflammatory diseases and cancer. Immunodeficiency occurs when the immune system is less active than normal, resulting in recurring and life-threatening infections. In humans, immunodeficiency can either be the result of a genetic disease such as severe combined immunodeficiency, acquired conditions such as HIV/AIDS, or the use of immunosuppressive medication. In contrast, autoimmunity results from a hyperactive immune system attacking normal tissues as if they were foreign organisms. Common autoimmune diseases include Hashimoto's thyroiditis, rheumatoid arthritis, diabetes mellitus type 1, and systemic lupus erythematosus. Immunology covers the study of all aspects of the immune system.",
+            "question": "What happens when the immune system less active than normal?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.6120937885643768,
+                    0.4860543019700951,
+                    0.0846385418172726,
+                    0.21043222844693432
+                ],
+                "contrastive_score": 0.3803392898961033,
+                "question_scores": [
+                    0.8888888888888888,
+                    0.5337677092355984,
+                    0.1056267390335397,
+                    0.1212121212121212
+                ]
+            }
+        },
+        {
+            "answer": "neuroimmune system",
+            "answer_index": 655,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "What is the immune system of the brained known as?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.4226689976689977,
+                    0.49209885200252756,
+                    0.14989981870406538,
+                    0.25201525054466234
+                ],
+                "contrastive_score": 0.34646501802506635,
+                "question_scores": [
+                    0.8333333333333334,
+                    0.5094879263788141,
+                    0.08191293526510027,
+                    0.0303030303030303
+                ]
+            }
+        },
+        {
+            "answer": "pathogens",
+            "answer_index": 210,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "What are the agents the immune system detects known as?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.4226689976689977,
+                    0.49209885200252756,
+                    0.14989981870406538,
+                    0.25201525054466234
+                ],
+                "contrastive_score": 0.34045972911340355,
+                "question_scores": [
+                    0.4285714285714286,
+                    0.5226485203219289,
+                    0.27395678327543616,
+                    0.18181818181818182
+                ]
+            }
+        },
+        {
+            "answer": "pathogens",
+            "answer_index": 210,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "What are the agents detected by the immune system called?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.4226689976689977,
+                    0.49209885200252756,
+                    0.14989981870406538,
+                    0.25201525054466234
+                ],
+                "contrastive_score": 0.32967352753020507,
+                "question_scores": [
+                    0.4285714285714286,
+                    0.5104732965590592,
+                    0.1089333034636269,
+                    0.2727272727272727
+                ]
+            }
+        },
+        {
+            "answer": "humoral immunity versus cell-mediated immunity",
+            "answer_index": 456,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "What are the two different types of immunity?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.4226689976689977,
+                    0.49209885200252756,
+                    0.14989981870406538,
+                    0.25201525054466234
+                ],
+                "contrastive_score": 0.32648967070335555,
+                "question_scores": [
+                    0.7142857142857143,
+                    0.5068746583468031,
+                    0.0,
+                    0.07407407407407407
+                ]
+            }
+        },
+        {
+            "answer": "neuroimmune system",
+            "answer_index": 655,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "Which part of the immune system protects the brain?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.4226689976689977,
+                    0.49209885200252756,
+                    0.14989981870406538,
+                    0.25201525054466234
+                ],
+                "contrastive_score": 0.3233025754407963,
+                "question_scores": [
+                    0.6666666666666667,
+                    0.5045433663159437,
+                    0.03186098495684109,
+                    0.06666666666666667
+                ]
+            }
+        },
+        {
+            "answer": "autoimmunity",
+            "answer_index": 442,
+            "context": "Disorders of the immune system can result in autoimmune diseases, inflammatory diseases and cancer. Immunodeficiency occurs when the immune system is less active than normal, resulting in recurring and life-threatening infections. In humans, immunodeficiency can either be the result of a genetic disease such as severe combined immunodeficiency, acquired conditions such as HIV/AIDS, or the use of immunosuppressive medication. In contrast, autoimmunity results from a hyperactive immune system attacking normal tissues as if they were foreign organisms. Common autoimmune diseases include Hashimoto's thyroiditis, rheumatoid arthritis, diabetes mellitus type 1, and systemic lupus erythematosus. Immunology covers the study of all aspects of the immune system.",
+            "question": "What is the term for a hyperactive immune system that attacks normal tissues?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.6120937885643768,
+                    0.4860543019700951,
+                    0.0846385418172726,
+                    0.21043222844693432
+                ],
+                "contrastive_score": 0.3092873398450757,
+                "question_scores": [
+                    0.5,
+                    0.5071822581462773,
+                    0.05008807600612597,
+                    0.023809523809523808
+                ]
+            }
+        },
+        {
+            "answer": "disease",
+            "answer_index": 115,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "The immune system protects organisms against what?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.4226689976689977,
+                    0.49209885200252756,
+                    0.14989981870406538,
+                    0.25201525054466234
+                ],
+                "contrastive_score": 0.28553053847176096,
+                "question_scores": [
+                    0.33333333333333337,
+                    0.5190337372303269,
+                    0.03186098495684109,
+                    0.08333333333333333
+                ]
+            }
+        },
+        {
+            "answer": "Immunology",
+            "answer_index": 698,
+            "context": "Disorders of the immune system can result in autoimmune diseases, inflammatory diseases and cancer. Immunodeficiency occurs when the immune system is less active than normal, resulting in recurring and life-threatening infections. In humans, immunodeficiency can either be the result of a genetic disease such as severe combined immunodeficiency, acquired conditions such as HIV/AIDS, or the use of immunosuppressive medication. In contrast, autoimmunity results from a hyperactive immune system attacking normal tissues as if they were foreign organisms. Common autoimmune diseases include Hashimoto's thyroiditis, rheumatoid arthritis, diabetes mellitus type 1, and systemic lupus erythematosus. Immunology covers the study of all aspects of the immune system.",
+            "question": "What field involves the study of the immune system?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.6120937885643768,
+                    0.4860543019700951,
+                    0.0846385418172726,
+                    0.21043222844693432
+                ],
+                "contrastive_score": 0.27176408425568854,
+                "question_scores": [
+                    0.19999999999999996,
+                    0.500549792980846,
+                    0.0803440202659837,
+                    0.0
+                ]
+            }
+        },
+        {
+            "answer": "innate immune system versus the adaptive immune system",
+            "answer_index": 397,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "What are the two major subsystems of the immune system?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.4226689976689977,
+                    0.49209885200252756,
+                    0.14989981870406538,
+                    0.25201525054466234
+                ],
+                "contrastive_score": 0.26992298731155,
+                "question_scores": [
+                    0.2857142857142857,
+                    0.5266836635548313,
+                    0.0,
+                    0.0303030303030303
+                ]
+            }
+        }
+    ],
+    "api_chinese": [
+        {
+            "answer": "innate immune system versus the adaptive immune system",
+            "answer_index": 397,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "What are the two major subsystems of the immune system?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.6366053511705685,
+                    0.5484377918764949,
+                    0.07985591873024152,
+                    0.2679505135387488
+                ],
+                "contrastive_score": 0.4780495464646365,
+                "question_scores": [
+                    1.0,
+                    0.549122553976796,
+                    0.5,
+                    0.2424242424242424
+                ]
+            }
+        },
+        {
+            "answer": "Immunodeficiency",
+            "answer_index": 100,
+            "context": "Disorders of the immune system can result in autoimmune diseases, inflammatory diseases and cancer. Immunodeficiency occurs when the immune system is less active than normal, resulting in recurring and life-threatening infections. In humans, immunodeficiency can either be the result of a genetic disease such as severe combined immunodeficiency, acquired conditions such as HIV/AIDS, or the use of immunosuppressive medication. In contrast, autoimmunity results from a hyperactive immune system attacking normal tissues as if they were foreign organisms. Common autoimmune diseases include Hashimoto's thyroiditis, rheumatoid arthritis, diabetes mellitus type 1, and systemic lupus erythematosus. Immunology covers the study of all aspects of the immune system.",
+            "question": "What happens when the immune system less active than normal?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.753449527959332,
+                    0.5373760269333919,
+                    0.07321127049800964,
+                    0.2826194366635543
+                ],
+                "contrastive_score": 0.4630726693466487,
+                "question_scores": [
+                    0.7777777777777778,
+                    0.546390325685961,
+                    0.06709032258849601,
+                    0.6666666666666666
+                ]
+            }
+        },
+        {
+            "answer": "autoimmunity",
+            "answer_index": 442,
+            "context": "Disorders of the immune system can result in autoimmune diseases, inflammatory diseases and cancer. Immunodeficiency occurs when the immune system is less active than normal, resulting in recurring and life-threatening infections. In humans, immunodeficiency can either be the result of a genetic disease such as severe combined immunodeficiency, acquired conditions such as HIV/AIDS, or the use of immunosuppressive medication. In contrast, autoimmunity results from a hyperactive immune system attacking normal tissues as if they were foreign organisms. Common autoimmune diseases include Hashimoto's thyroiditis, rheumatoid arthritis, diabetes mellitus type 1, and systemic lupus erythematosus. Immunology covers the study of all aspects of the immune system.",
+            "question": "What is the term for a hyperactive immune system that attacks normal tissues?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.753449527959332,
+                    0.5373760269333919,
+                    0.07321127049800964,
+                    0.2826194366635543
+                ],
+                "contrastive_score": 0.4590484053131496,
+                "question_scores": [
+                    0.9,
+                    0.5518333806352596,
+                    0.05008807600612597,
+                    0.5238095238095238
+                ]
+            }
+        },
+        {
+            "answer": "humoral immunity versus cell-mediated immunity",
+            "answer_index": 456,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "What are the two different types of immunity?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.6366053511705685,
+                    0.5484377918764949,
+                    0.07985591873024152,
+                    0.2679505135387488
+                ],
+                "contrastive_score": 0.45520469899871235,
+                "question_scores": [
+                    0.8571428571428572,
+                    0.5294229373085659,
+                    0.5,
+                    0.2222222222222222
+                ]
+            }
+        },
+        {
+            "answer": "blood–brain barrier, blood–cerebrospinal fluid barrier",
+            "answer_index": 519,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "What separates the neuroimmune system and peripheral immune system in humans?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.6366053511705685,
+                    0.5484377918764949,
+                    0.07985591873024152,
+                    0.2679505135387488
+                ],
+                "contrastive_score": 0.4401035272397489,
+                "question_scores": [
+                    0.7,
+                    0.5396926819344456,
+                    0.27606373844526955,
+                    0.47222222222222227
+                ]
+            }
+        },
+        {
+            "answer": "neuroimmune system",
+            "answer_index": 655,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "What is the immune system of the brained known as?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.6366053511705685,
+                    0.5484377918764949,
+                    0.07985591873024152,
+                    0.2679505135387488
+                ],
+                "contrastive_score": 0.43600209559496683,
+                "question_scores": [
+                    0.8333333333333334,
+                    0.5448467698046087,
+                    0.27395678327543616,
+                    0.30303030303030304
+                ]
+            }
+        },
+        {
+            "answer": "pathogens",
+            "answer_index": 210,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "What are the agents the immune system detects known as?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.6366053511705685,
+                    0.5484377918764949,
+                    0.07985591873024152,
+                    0.2679505135387488
+                ],
+                "contrastive_score": 0.4311716685514771,
+                "question_scores": [
+                    0.875,
+                    0.5554457776991149,
+                    0.27395678327543616,
+                    0.21212121212121213
+                ]
+            }
+        },
+        {
+            "answer": "HIV/AIDS",
+            "answer_index": 375,
+            "context": "Disorders of the immune system can result in autoimmune diseases, inflammatory diseases and cancer. Immunodeficiency occurs when the immune system is less active than normal, resulting in recurring and life-threatening infections. In humans, immunodeficiency can either be the result of a genetic disease such as severe combined immunodeficiency, acquired conditions such as HIV/AIDS, or the use of immunosuppressive medication. In contrast, autoimmunity results from a hyperactive immune system attacking normal tissues as if they were foreign organisms. Common autoimmune diseases include Hashimoto's thyroiditis, rheumatoid arthritis, diabetes mellitus type 1, and systemic lupus erythematosus. Immunology covers the study of all aspects of the immune system.",
+            "question": "What acquired condition results in immunodeficiency in humans?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.753449527959332,
+                    0.5373760269333919,
+                    0.07321127049800964,
+                    0.2826194366635543
+                ],
+                "contrastive_score": 0.4303633742924323,
+                "question_scores": [
+                    0.8571428571428572,
+                    0.4805659087514972,
+                    0.1252086330574833,
+                    0.3333333333333333
+                ]
+            }
+        },
+        {
+            "answer": "pathogens",
+            "answer_index": 210,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "What are the agents detected by the immune system called?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.6366053511705685,
+                    0.5484377918764949,
+                    0.07985591873024152,
+                    0.2679505135387488
+                ],
+                "contrastive_score": 0.41770535995819713,
+                "question_scores": [
+                    0.875,
+                    0.5568037187330968,
+                    0.2557774644043053,
+                    0.1212121212121212
+                ]
+            }
+        },
+        {
+            "answer": "neuroimmune system",
+            "answer_index": 655,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "Which part of the immune system protects the brain?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.6366053511705685,
+                    0.5484377918764949,
+                    0.07985591873024152,
+                    0.2679505135387488
+                ],
+                "contrastive_score": 0.38092686186100533,
+                "question_scores": [
+                    0.5,
+                    0.5371171687183196,
+                    0.1107814841870029,
+                    0.36666666666666664
+                ]
+            }
+        },
+        {
+            "answer": "disease",
+            "answer_index": 115,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "The immune system protects organisms against what?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.6366053511705685,
+                    0.5484377918764949,
+                    0.07985591873024152,
+                    0.2679505135387488
+                ],
+                "contrastive_score": 0.3764175555745424,
+                "question_scores": [
+                    0.6666666666666667,
+                    0.5343760517599492,
+                    0.1107814841870029,
+                    0.16666666666666666
+                ]
+            }
+        },
+        {
+            "answer": "Immunology",
+            "answer_index": 698,
+            "context": "Disorders of the immune system can result in autoimmune diseases, inflammatory diseases and cancer. Immunodeficiency occurs when the immune system is less active than normal, resulting in recurring and life-threatening infections. In humans, immunodeficiency can either be the result of a genetic disease such as severe combined immunodeficiency, acquired conditions such as HIV/AIDS, or the use of immunosuppressive medication. In contrast, autoimmunity results from a hyperactive immune system attacking normal tissues as if they were foreign organisms. Common autoimmune diseases include Hashimoto's thyroiditis, rheumatoid arthritis, diabetes mellitus type 1, and systemic lupus erythematosus. Immunology covers the study of all aspects of the immune system.",
+            "question": "What field involves the study of the immune system?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.753449527959332,
+                    0.5373760269333919,
+                    0.07321127049800964,
+                    0.2826194366635543
+                ],
+                "contrastive_score": 0.3335135965617936,
+                "question_scores": [
+                    0.33333333333333337,
+                    0.5411084901740773,
+                    0.0803440202659837,
+                    0.06666666666666667
+                ]
+            }
+        }
+    ],
+    "api_japanese": [
+        {
+            "answer": "Immunodeficiency",
+            "answer_index": 100,
+            "context": "Disorders of the immune system can result in autoimmune diseases, inflammatory diseases and cancer. Immunodeficiency occurs when the immune system is less active than normal, resulting in recurring and life-threatening infections. In humans, immunodeficiency can either be the result of a genetic disease such as severe combined immunodeficiency, acquired conditions such as HIV/AIDS, or the use of immunosuppressive medication. In contrast, autoimmunity results from a hyperactive immune system attacking normal tissues as if they were foreign organisms. Common autoimmune diseases include Hashimoto's thyroiditis, rheumatoid arthritis, diabetes mellitus type 1, and systemic lupus erythematosus. Immunology covers the study of all aspects of the immune system.",
+            "question": "What happens when the immune system less active than normal?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.7117898441427855,
+                    0.5269088323305672,
+                    0.3697794750868466,
+                    0.8243094460006225
+                ],
+                "contrastive_score": 0.6016642081818916,
+                "question_scores": [
+                    1.0,
+                    0.4818938530705258,
+                    0.3834806996722699,
+                    0.5151515151515151
+                ]
+            }
+        },
+        {
+            "answer": "HIV/AIDS",
+            "answer_index": 375,
+            "context": "Disorders of the immune system can result in autoimmune diseases, inflammatory diseases and cancer. Immunodeficiency occurs when the immune system is less active than normal, resulting in recurring and life-threatening infections. In humans, immunodeficiency can either be the result of a genetic disease such as severe combined immunodeficiency, acquired conditions such as HIV/AIDS, or the use of immunosuppressive medication. In contrast, autoimmunity results from a hyperactive immune system attacking normal tissues as if they were foreign organisms. Common autoimmune diseases include Hashimoto's thyroiditis, rheumatoid arthritis, diabetes mellitus type 1, and systemic lupus erythematosus. Immunology covers the study of all aspects of the immune system.",
+            "question": "What acquired condition results in immunodeficiency in humans?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.7117898441427855,
+                    0.5269088323305672,
+                    0.3697794750868466,
+                    0.8243094460006225
+                ],
+                "contrastive_score": 0.5530764653242106,
+                "question_scores": [
+                    0.375,
+                    0.5306966916405218,
+                    0.308349655614564,
+                    0.7777777777777778
+                ]
+            }
+        },
+        {
+            "answer": "autoimmunity",
+            "answer_index": 442,
+            "context": "Disorders of the immune system can result in autoimmune diseases, inflammatory diseases and cancer. Immunodeficiency occurs when the immune system is less active than normal, resulting in recurring and life-threatening infections. In humans, immunodeficiency can either be the result of a genetic disease such as severe combined immunodeficiency, acquired conditions such as HIV/AIDS, or the use of immunosuppressive medication. In contrast, autoimmunity results from a hyperactive immune system attacking normal tissues as if they were foreign organisms. Common autoimmune diseases include Hashimoto's thyroiditis, rheumatoid arthritis, diabetes mellitus type 1, and systemic lupus erythematosus. Immunology covers the study of all aspects of the immune system.",
+            "question": "What is the term for a hyperactive immune system that attacks normal tissues?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.7117898441427855,
+                    0.5269088323305672,
+                    0.3697794750868466,
+                    0.8243094460006225
+                ],
+                "contrastive_score": 0.5526659633659194,
+                "question_scores": [
+                    0.9,
+                    0.49083298574136003,
+                    0.05008807600612597,
+                    0.5476190476190477
+                ]
+            }
+        },
+        {
+            "answer": "blood–brain barrier, blood–cerebrospinal fluid barrier",
+            "answer_index": 519,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "What separates the neuroimmune system and peripheral immune system in humans?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.7498646281254977,
+                    0.503440193773713,
+                    0.20485591873024156,
+                    0.4475412387177093
+                ],
+                "contrastive_score": 0.5344129060043227,
+                "question_scores": [
+                    0.8,
+                    0.4879819746865949,
+                    0.27606373844526955,
+                    0.8055555555555555
+                ]
+            }
+        },
+        {
+            "answer": "pathogens",
+            "answer_index": 210,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "What are the agents the immune system detects known as?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.7498646281254977,
+                    0.503440193773713,
+                    0.20485591873024156,
+                    0.4475412387177093
+                ],
+                "contrastive_score": 0.5330856321935922,
+                "question_scores": [
+                    1.0,
+                    0.4965762251133753,
+                    0.22604321672456387,
+                    0.6363636363636364
+                ]
+            }
+        },
+        {
+            "answer": "Immunology",
+            "answer_index": 698,
+            "context": "Disorders of the immune system can result in autoimmune diseases, inflammatory diseases and cancer. Immunodeficiency occurs when the immune system is less active than normal, resulting in recurring and life-threatening infections. In humans, immunodeficiency can either be the result of a genetic disease such as severe combined immunodeficiency, acquired conditions such as HIV/AIDS, or the use of immunosuppressive medication. In contrast, autoimmunity results from a hyperactive immune system attacking normal tissues as if they were foreign organisms. Common autoimmune diseases include Hashimoto's thyroiditis, rheumatoid arthritis, diabetes mellitus type 1, and systemic lupus erythematosus. Immunology covers the study of all aspects of the immune system.",
+            "question": "What field involves the study of the immune system?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.7117898441427855,
+                    0.5269088323305672,
+                    0.3697794750868466,
+                    0.8243094460006225
+                ],
+                "contrastive_score": 0.5124740278801209,
+                "question_scores": [
+                    0.6666666666666667,
+                    0.48666060521416077,
+                    0.0803440202659837,
+                    0.4333333333333333
+                ]
+            }
+        },
+        {
+            "answer": "humoral immunity versus cell-mediated immunity",
+            "answer_index": 456,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "What are the two different types of immunity?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.7498646281254977,
+                    0.503440193773713,
+                    0.20485591873024156,
+                    0.4475412387177093
+                ],
+                "contrastive_score": 0.4702922554903827,
+                "question_scores": [
+                    0.5714285714285714,
+                    0.48891119685103235,
+                    0.5,
+                    0.2962962962962963
+                ]
+            }
+        },
+        {
+            "answer": "pathogens",
+            "answer_index": 210,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "What are the agents detected by the immune system called?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.7498646281254977,
+                    0.503440193773713,
+                    0.20485591873024156,
+                    0.4475412387177093
+                ],
+                "contrastive_score": 0.4684995614905513,
+                "question_scores": [
+                    0.875,
+                    0.48064773455731136,
+                    0.24422253559569468,
+                    0.2424242424242424
+                ]
+            }
+        },
+        {
+            "answer": "neuroimmune system",
+            "answer_index": 655,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "What is the immune system of the brained known as?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.7498646281254977,
+                    0.503440193773713,
+                    0.20485591873024156,
+                    0.4475412387177093
+                ],
+                "contrastive_score": 0.4540530921912807,
+                "question_scores": [
+                    0.75,
+                    0.4779522687312474,
+                    0.22604321672456387,
+                    0.2727272727272727
+                ]
+            }
+        },
+        {
+            "answer": "innate immune system versus the adaptive immune system",
+            "answer_index": 397,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "What are the two major subsystems of the immune system?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.7498646281254977,
+                    0.503440193773713,
+                    0.20485591873024156,
+                    0.4475412387177093
+                ],
+                "contrastive_score": 0.42957901259837267,
+                "question_scores": [
+                    0.625,
+                    0.48168769719739535,
+                    0.0,
+                    0.42424242424242425
+                ]
+            }
+        },
+        {
+            "answer": "disease",
+            "answer_index": 115,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "The immune system protects organisms against what?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.7498646281254977,
+                    0.503440193773713,
+                    0.20485591873024156,
+                    0.4475412387177093
+                ],
+                "contrastive_score": 0.42886494931165786,
+                "question_scores": [
+                    0.6666666666666667,
+                    0.49776946429243185,
+                    0.1107814841870029,
+                    0.25
+                ]
+            }
+        },
+        {
+            "answer": "neuroimmune system",
+            "answer_index": 655,
+            "context": "The immune system is a system of many biological structures and processes within an organism that protects against disease. To function properly, an immune system must detect a wide variety of agents, known as pathogens, from viruses to parasitic worms, and distinguish them from the organism's own healthy tissue. In many species, the immune system can be classified into subsystems, such as the innate immune system versus the adaptive immune system, or humoral immunity versus cell-mediated immunity. In humans, the blood–brain barrier, blood–cerebrospinal fluid barrier, and similar fluid–brain barriers separate the peripheral immune system from the neuroimmune system which protects the brain.",
+            "question": "Which part of the immune system protects the brain?",
+            "ranking_metadata": {
+                "context_scores": [
+                    0.7498646281254977,
+                    0.503440193773713,
+                    0.20485591873024156,
+                    0.4475412387177093
+                ],
+                "contrastive_score": 0.4035789567600012,
+                "question_scores": [
+                    0.5,
+                    0.47881485721251194,
+                    0.1107814841870029,
+                    0.23333333333333334
                 ]
             }
         }
