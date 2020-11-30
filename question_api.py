@@ -1,10 +1,12 @@
 #main.py
 import json, re, os
 from flask import Flask, jsonify, request, abort
+from flask_cors import CORS
 
 from question_rank import QuestionRanker
 
 app = Flask(__name__)
+CORS(app)
 ranker = QuestionRanker('Spanish')
 
 def l1_target_filter(questions_obj, l1_target=None):
