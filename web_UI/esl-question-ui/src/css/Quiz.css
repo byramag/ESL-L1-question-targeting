@@ -10,9 +10,11 @@
     font-family:Arial;
     font-size:15px;
     font-weight:bold;
+    margin: 0 10px;
     padding:6px 24px;
     text-decoration:none;
     text-shadow:0px 1px 0px #2b665e;
+    display: inline-block;
 }
 .myButton:hover {
     background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
@@ -23,6 +25,19 @@
     top:1px;
 }
 
+.Quiz-body {
+    background-color: #5fb37b; /**/
+    min-height: 100vh;
+    display: flex;
+    width: 85%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    padding: 30px;
+  }
+
 .link-text {
 color: white;
 text-decoration: none;
@@ -32,9 +47,28 @@ color: #222;
 text-decoration: none;
 }
 
+.readPassage {
+    background-color: rgb(231, 230, 230);
+    text-align: left;
+    width: 85%;
+    border: 12px solid green;
+    padding: 30px;
+    margin: 20px;
+    color: black
+}
+
+.review {
+    background-color: rgb(231, 230, 230);
+    text-align: left;
+    width: 85%;
+    border: 2px solid black;
+    padding: 30px;
+    margin: 20px;
+    color: black
+}
 
 .Quiz {
-    background-color: #578e62; /**/
+    background-color: #72ca8f; /**/
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -47,4 +81,12 @@ text-decoration: none;
 
 .Quiz-body {
     float: left !important;
+}
+
+.QuizFormElement {
+    padding: 14px 14px;
+}
+.QuizFormLabel {
+    padding: 14px 14px;
+    font-weight: bold;
 }
