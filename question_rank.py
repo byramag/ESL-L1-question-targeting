@@ -2,6 +2,7 @@ import json
 from googletrans import Translator
 import spacy
 import re
+import random
 import time
 
 class QuestionRanker():
@@ -66,10 +67,12 @@ class QuestionRanker():
     def rank(self, questions):
         context_scores = []
         question_scores = []
+        distractors = [] 
         i = 0
         for paragraph in questions:
             en_context_doc = self.en_model(paragraph['context'])
             l1_context_doc = self.l1_model(self.translate(paragraph['context']))
+            distractors.append(self.get_distractors(en_context_doc))
             sent_scores = []
             for en_sent, l1_sent in zip(en_context_doc.sents, l1_context_doc.sents):
                 sent_scores.append([
@@ -100,11 +103,18 @@ class QuestionRanker():
                     # self.contrastive_ner(en_question_doc, l1_question_doc)
                 ])
             i += 1
-        ranked_question_obj = self.build_response(questions, context_scores, question_scores)
+        ranked_question_obj = self.build_response(questions, context_scores, question_scores, distractors)
         print(f"last q after build response is {ranked_question_obj[-1]['question']}")
         return ranked_question_obj
+
+    def get_distractors(self, context_doc):
+        dist = []
+        dist = [ent.text for ent in context_doc.ents]
+        # dist = [token.text for token in context_doc if token.pos_ in ['PROPN']]
+        # dist += [token.text for token in context_doc if token.pos_ in ['NOUN']]
+        return list(set(dist))
     
-    def build_response(self, questions, context_scores, question_scores):
+    def build_response(self, questions, context_scores, question_scores, distractors):
         full_passage = ""
         reformatted_qs = []
         i,j = 0,0
@@ -114,12 +124,15 @@ class QuestionRanker():
                 if not q['is_impossible']:
                     # print(f"question {q['question']} answer {q['answers'][0]}")
                     # print(f"indices i {i} j {j}")
+                    random.shuffle(distractors[i])
+                    if q['answers'][0]['text'] in distractors[i][:3]: # make sure distractor is not real answer
+                        distractors[i][distractors[i].index(q['answers'][0]['text'])] = "Nothing"
                     question_response = {
                         "context": para['context'],
                         "question": q['question'],
                         "answer": q['answers'][0]['text'],
                         "answer_index": q['answers'][0]['answer_start'],
-                        # "distractors": distractors,
+                        "distractors": distractors[i][:3],
                         "context_scores": context_scores[i],
                         "question_scores": question_scores[i][j]
                     }
@@ -133,8 +146,9 @@ class QuestionRanker():
     
     def get_feature_text(self, scores):
         all_scores = scores["context_scores"] + scores["question_scores"]
+        all_scores = [0 if score == 1 else score for score in all_scores]
         top_score = max(all_scores)
-        top_index = all_scores.index(top_score)
+        top_index = all_scores.index(top_score) + 1
 
         if top_index % 4 == 0 : feature_text, feature_desc = "SVO ordering", "high-level sentence structure"
         elif top_index % 4 == 1 : feature_text, feature_desc = "part-of-speech word ordering", "low-level sentence structure"
