@@ -2,6 +2,7 @@ import json
 from googletrans import Translator
 import spacy
 import re
+import time
 
 class QuestionRanker():
     lang_map = {
@@ -27,7 +28,7 @@ class QuestionRanker():
         self.l1 = l1.lower()
         assert self.l1 in self.lang_map.keys()
 
-        self.translator = Translator()
+        self.translator = Translator(service_urls=['translate.googleapis.com'])
         self.en_model, self.l1_model = self.load_lang_models(self.l1)
     
     def load_lang_models(self, lang):
@@ -46,11 +47,20 @@ class QuestionRanker():
         if not dest:
             dest = self.lang_map[self.l1]['abbrev']
         # print(f"translating text {text} from {src} to {dest}")
-        translated = self.translator.translate(
-            text, 
-            src=src, 
-            dest=dest
-        ).text
+        translated = ""
+        counter = 0
+        while not translated and counter < 10:
+            try:
+                translated = self.translator.translate(
+                    text, 
+                    src=src, 
+                    dest=dest
+                ).text
+            except Exception as e:
+                counter += 1
+                print(e)
+                time.sleep(0.5)
+                self.translator = Translator(service_urls=['translate.googleapis.com'])
         return translated
 
     def rank(self, questions):
@@ -69,6 +79,8 @@ class QuestionRanker():
                     self.contrastive_dependency_parse(en_sent, l1_sent),
                     # self.contrastive_ner(en_sent, l1_sent)
                 ])
+            if not sent_scores:
+                return self.build_response(questions, [[0]], [[0]])
             sent_score_avgs = []
             for feature in range(len(sent_scores[0])): # for each feature
                 feature_total = 0
