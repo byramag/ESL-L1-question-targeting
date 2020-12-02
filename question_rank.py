@@ -131,10 +131,10 @@ class QuestionRanker():
         print(f"last q after order by is {reformatted_qs[-1]['question']}")
         return reformatted_qs
     
-    def get_feature_text(scores):
+    def get_feature_text(self, scores):
         all_scores = scores["context_scores"] + scores["question_scores"]
         top_score = max(all_scores)
-        top_index = index(top_score)
+        top_index = all_scores.index(top_score)
 
         if top_index % 4 == 0 : feature_text, feature_desc = "SVO ordering", "high-level sentence structure"
         elif top_index % 4 == 1 : feature_text, feature_desc = "part-of-speech word ordering", "low-level sentence structure"
@@ -142,7 +142,7 @@ class QuestionRanker():
         else : feature_text, feature_desc = "verb form analysis", "verb conjugation"
         feature_of = "context" if top_index < 4 else "question"
 
-        return feature_text, , top_score, feature_desc
+        return feature_text, feature_of, top_score, feature_desc
 
     def get_metadata(self, question_info, score):
         feature_text, where_feature, highest_score, feature_implication = self.get_feature_text(question_info)
