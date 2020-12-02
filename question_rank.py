@@ -119,6 +119,7 @@ class QuestionRanker():
                         "question": q['question'],
                         "answer": q['answers'][0]['text'],
                         "answer_index": q['answers'][0]['answer_start'],
+                        # "distractors": distractors,
                         "context_scores": context_scores[i],
                         "question_scores": question_scores[i][j]
                     }
@@ -129,12 +130,36 @@ class QuestionRanker():
         reformatted_qs = self.order_by_scores(reformatted_qs)
         print(f"last q after order by is {reformatted_qs[-1]['question']}")
         return reformatted_qs
+    
+    def get_feature_text(scores):
+        all_scores = scores["context_scores"] + scores["question_scores"]
+        top_score = max(all_scores)
+        top_index = index(top_score)
+
+        if top_index % 4 == 0 : feature_text, feature_desc = "SVO ordering", "high-level sentence structure"
+        elif top_index % 4 == 1 : feature_text, feature_desc = "part-of-speech word ordering", "low-level sentence structure"
+        elif top_index % 4 == 2 : feature_text, feature_desc = "semantic similarity", "word meanings"
+        else : feature_text, feature_desc = "verb form analysis", "verb conjugation"
+        feature_of = "context" if top_index < 4 else "question"
+
+        return feature_text, , top_score, feature_desc
 
     def get_metadata(self, question_info, score):
+        feature_text, where_feature, highest_score, feature_implication = self.get_feature_text(question_info)
+        if score > 0.8 : contrastive_level = "very high"
+        elif score > 0.6 : contrastive_level = "somewhat high"
+        elif score > 0.4 : contrastive_level = "moderate"
+        elif score > 0.2 : contrastive_level = "somewhat low"
+        else : contrastive_level = "low"
+        score_message = f"""
+            This question recieved a total contrastive score of {int(score*100)}%. This score is considered a {contrastive_level} level of contrast between English and your native language within the question and context.
+            The most contrastive feature was {feature_text} within the {where_feature} with a score of {int(highest_score*100)}%, so the skill that may be more difficult for you in answering this question is {feature_implication}.
+        """
         metadata = {
             "context_scores": question_info["context_scores"],
             "question_scores": question_info["question_scores"],
-            "contrastive_score": score
+            "contrastive_score": score,
+            "explanation": score_message
         }
         return metadata
         
