@@ -72,7 +72,7 @@ class QuizContent extends React.Component {
         let allAnswers = new Map()
         questions.forEach(function(q) {
             var answers = q['distractors']
-            var i = Math.floor(Math.random() * questions.length); 
+            var i = Math.floor(Math.random() * answers.length); 
             answers.splice(i, 0, q['answer']) 
             allAnswers[q['question']] = [answers, (i+1).toString()]
         });
@@ -85,7 +85,7 @@ class QuizContent extends React.Component {
         console.log(answers)
         let questionObject = {
             "quizTitle": this.props.topic.replace(/_/g, ' '),
-            "quizSynopsis": "These are the reading comprehension questions from the passage that were selected for you as they have features that might make them more difficult for native " + this.l1 + " speakers",
+            "quizSynopsis": "These selected questions have features that might make them more difficult for native " + this.l1 + " speakers, so they'll give you extra practice.",
             "questions": []
         }
         response['Questions'].forEach(q => 

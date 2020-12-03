@@ -147,8 +147,7 @@ class QuestionRanker():
                 j += 1
             i += 1
             j = 0
-        if self.l1:
-            reformatted_qs = self.order_by_scores(reformatted_qs)
+        reformatted_qs = self.order_by_scores(reformatted_qs)
         print(f"last q after order by is {reformatted_qs[-1]['question']}")
         return reformatted_qs
     
@@ -188,28 +187,35 @@ class QuestionRanker():
         return metadata
         
     def order_by_scores(self, questions):
-        print(f"before reordering {questions}")
-        contrastive_scores = []
-        for q in questions:
-            context_avg = sum(q['context_scores'])/len(q['context_scores'])
-            question_avg = sum(q['question_scores'])/len(q['question_scores'])
-            contrastive_scores.append((context_avg + question_avg) / 2)
-        # print(f"all scores {contrastive_scores}")
-        ordered_questions = []
-        for i in range(len(contrastive_scores)):
-            max_q_index = contrastive_scores.index(max(contrastive_scores))
-            
-            question_object = questions[max_q_index]
-            question_object['ranking_metadata'] = self.get_metadata(
-                question_object, 
-                contrastive_scores[max_q_index]
-            )
-            del question_object['context_scores']
-            del question_object['question_scores']
-            ordered_questions.append(question_object)
+        if self.l1:
+            print(f"before reordering {questions}")
+            contrastive_scores = []
+            for q in questions:
+                context_avg = sum(q['context_scores'])/len(q['context_scores'])
+                question_avg = sum(q['question_scores'])/len(q['question_scores'])
+                contrastive_scores.append((context_avg + question_avg) / 2)
+            # print(f"all scores {contrastive_scores}")
+            ordered_questions = []
+            for i in range(len(contrastive_scores)):
+                max_q_index = contrastive_scores.index(max(contrastive_scores))
+                
+                question_object = questions[max_q_index]
+                question_object['ranking_metadata'] = self.get_metadata(
+                    question_object, 
+                    contrastive_scores[max_q_index]
+                )
+                del question_object['context_scores']
+                del question_object['question_scores']
+                ordered_questions.append(question_object)
 
-            contrastive_scores[max_q_index] = 0
-        print(f"after reordering {ordered_questions}")
+                contrastive_scores[max_q_index] = 0
+            print(f"after reordering {ordered_questions}")
+        else:
+            ordered_questions = []
+            for q in questions:
+                ordered_questions.append(
+                    q['ranking_metadata'] = {"explanation": "No L1 was provided, so no question targeting was performed."}
+                )
         return ordered_questions
     
     def contrastive_word_order(self, en_doc, l1_doc):
