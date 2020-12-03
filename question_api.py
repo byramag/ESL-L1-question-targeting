@@ -11,24 +11,14 @@ ranker = QuestionRanker('Spanish')
 
 def l1_target_filter(questions_obj, l1_target=None):
     ranked = []
-    if l1_target:
-        try:
-            if l1_target.lower() != ranker.l1:
-                ranker.swap_l1(l1_target)
-            ranked = ranker.rank(questions_obj)
-            print(f"last q after rank is {ranked[-1]['question']}")
-            return ranked
-        except ValueError:
-            print(f"L1 {l1_target} not recognized")
-    for para in questions_obj:
-        for q in para['qas']:
-            if not q['is_impossible']:
-                ranked.append({
-                    "context": para['context'],
-                    "question": q['question'],
-                    "answer": q['answers'][0]['text'],
-                    "answer_index": q['answers'][0]['answer_start']
-                })
+    try:
+        if l1_target.lower() != ranker.l1:
+            ranker.swap_l1(l1_target)
+        ranked = ranker.rank(questions_obj)
+        # print(f"last q after rank is {ranked[-1]['question']}")
+        return ranked
+    except ValueError:
+        print(f"L1 {l1_target} not recognized")
     return ranked
 
 @app.errorhandler(404)

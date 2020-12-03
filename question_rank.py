@@ -38,11 +38,12 @@ class QuestionRanker():
         return en_model, l1_model
     
     def swap_l1(self, new_l1):
-        if new_l1.lower() not in self.lang_map.keys():
+        if new_l1 and new_l1.lower() not in self.lang_map.keys():
             print(f"Attempted L1 set to {new_l1}, but failed because invalid")
             raise ValueError
         self.l1 = new_l1.lower()
-        self.l1_model = spacy.load(self.lang_map[self.l1]['model'])
+        if self.l1:
+            self.l1_model = spacy.load(self.lang_map[self.l1]['model'])
     
     def translate(self, text, src='en', dest=None):
         if not dest:
@@ -71,37 +72,41 @@ class QuestionRanker():
         i = 0
         for paragraph in questions:
             en_context_doc = self.en_model(paragraph['context'])
-            l1_context_doc = self.l1_model(self.translate(paragraph['context']))
             distractors.append(self.get_distractors(en_context_doc))
-            sent_scores = []
-            for en_sent, l1_sent in zip(en_context_doc.sents, l1_context_doc.sents):
-                sent_scores.append([
-                    self.contrastive_word_order(en_sent, l1_sent),
-                    self.contrastive_sem_sim(en_sent, l1_sent),
-                    self.contrastive_verb_analysis(en_sent, l1_sent),
-                    self.contrastive_dependency_parse(en_sent, l1_sent),
-                    # self.contrastive_ner(en_sent, l1_sent)
-                ])
-            if not sent_scores:
-                return self.build_response(questions, [[0]], [[0]])
-            sent_score_avgs = []
-            for feature in range(len(sent_scores[0])): # for each feature
-                feature_total = 0
-                for j in range(len(sent_scores)): # sum feature from each sentence
-                    feature_total += sent_scores[j][feature]
-                sent_score_avgs.append(feature_total/len(sent_scores))
-            context_scores.append(sent_score_avgs)
-            question_scores.append([])
-            for question in paragraph['qas']:
-                en_question_doc = self.en_model(question['question'])
-                l1_question_doc = self.l1_model(self.translate(question['question']))
-                question_scores[i].append([
-                    self.contrastive_word_order(en_question_doc, l1_question_doc),
-                    self.contrastive_sem_sim(en_question_doc, l1_question_doc),
-                    self.contrastive_verb_analysis(en_question_doc, l1_question_doc),
-                    self.contrastive_dependency_parse(en_question_doc, l1_question_doc),
-                    # self.contrastive_ner(en_question_doc, l1_question_doc)
-                ])
+            if self.l1:
+                l1_context_doc = self.l1_model(self.translate(paragraph['context']))
+                sent_scores = []
+                for en_sent, l1_sent in zip(en_context_doc.sents, l1_context_doc.sents):
+                    sent_scores.append([
+                        self.contrastive_word_order(en_sent, l1_sent),
+                        self.contrastive_sem_sim(en_sent, l1_sent),
+                        self.contrastive_verb_analysis(en_sent, l1_sent),
+                        self.contrastive_dependency_parse(en_sent, l1_sent),
+                        # self.contrastive_ner(en_sent, l1_sent)
+                    ])
+                sent_score_avgs = []
+                for feature in range(len(sent_scores[0])): # for each feature
+                    feature_total = 0
+                    for j in range(len(sent_scores)): # sum feature from each sentence
+                        feature_total += sent_scores[j][feature]
+                    sent_score_avgs.append(feature_total/len(sent_scores))
+                context_scores.append(sent_score_avgs)
+                question_scores.append([])
+                for question in paragraph['qas']:
+                    en_question_doc = self.en_model(question['question'])
+                    l1_question_doc = self.l1_model(self.translate(question['question']))
+                    question_scores[i].append([
+                        self.contrastive_word_order(en_question_doc, l1_question_doc),
+                        self.contrastive_sem_sim(en_question_doc, l1_question_doc),
+                        self.contrastive_verb_analysis(en_question_doc, l1_question_doc),
+                        self.contrastive_dependency_parse(en_question_doc, l1_question_doc),
+                        # self.contrastive_ner(en_question_doc, l1_question_doc)
+                    ])
+            else:
+                context_scores.append([0,0,0,0])
+                question_scores.append([])
+                for question in paragraph['qas']:
+                    question_scores[i].append([0,0,0,0])
             i += 1
         ranked_question_obj = self.build_response(questions, context_scores, question_scores, distractors)
         print(f"last q after build response is {ranked_question_obj[-1]['question']}")
@@ -142,7 +147,8 @@ class QuestionRanker():
                 j += 1
             i += 1
             j = 0
-        reformatted_qs = self.order_by_scores(reformatted_qs)
+        if self.l1:
+            reformatted_qs = self.order_by_scores(reformatted_qs)
         print(f"last q after order by is {reformatted_qs[-1]['question']}")
         return reformatted_qs
     
@@ -161,13 +167,15 @@ class QuestionRanker():
         return feature_text, feature_of, top_score, feature_desc
 
     def get_metadata(self, question_info, score):
+        if not self.l1: return {"explanation": "No L1 was provided, so no targetting was performed."}
+
         feature_text, where_feature, highest_score, feature_implication = self.get_feature_text(question_info)
         if score > 0.8 : contrastive_level = "very high"
         elif score > 0.6 : contrastive_level = "somewhat high"
         elif score > 0.4 : contrastive_level = "moderate"
         elif score > 0.2 : contrastive_level = "somewhat low"
         else : contrastive_level = "low"
-        score_message = f"""
+        message = f"""
             This question recieved a total contrastive score of {int(score*100)}%. This score is considered a {contrastive_level} level of contrast between English and your native language within the question and context.
             The most contrastive feature was {feature_text} within the {where_feature} with a score of {int(highest_score*100)}%, so the skill that may be more difficult for you in answering this question is {feature_implication}.
         """
@@ -175,7 +183,7 @@ class QuestionRanker():
             "context_scores": question_info["context_scores"],
             "question_scores": question_info["question_scores"],
             "contrastive_score": score,
-            "explanation": score_message
+            "explanation": message
         }
         return metadata
         
