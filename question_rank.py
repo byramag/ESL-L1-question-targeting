@@ -110,8 +110,10 @@ class QuestionRanker():
     def get_distractors(self, context_doc):
         dist = []
         dist = [ent.text for ent in context_doc.ents]
-        # dist = [token.text for token in context_doc if token.pos_ in ['PROPN']]
-        # dist += [token.text for token in context_doc if token.pos_ in ['NOUN']]
+        if len(dist) < 5:
+            dist = [token.text for token in context_doc if token.pos_ in ['PROPN', 'NUM']]
+        if len(dist) < 5:
+            dist += [token.text for token in context_doc if token.pos_ in ['NOUN']]
         return list(set(dist))
     
     def build_response(self, questions, context_scores, question_scores, distractors):
@@ -126,7 +128,7 @@ class QuestionRanker():
                     # print(f"indices i {i} j {j}")
                     random.shuffle(distractors[i])
                     if q['answers'][0]['text'] in distractors[i][:3]: # make sure distractor is not real answer
-                        distractors[i][distractors[i].index(q['answers'][0]['text'])] = "Nothing"
+                        distractors[i][ distractors[i].index( q['answers'][0]['text'] ) ] = "Nothing"
                     question_response = {
                         "context": para['context'],
                         "question": q['question'],
