@@ -213,9 +213,10 @@ class QuestionRanker():
         else:
             ordered_questions = []
             for q in questions:
-                ordered_questions.append(
-                    q['ranking_metadata'] = {"explanation": "No L1 was provided, so no question targeting was performed."}
-                )
+                q['ranking_metadata'] = {"explanation": "No L1 was provided, so no question targeting was performed."}
+                del q['context_scores']
+                del q['question_scores']
+                ordered_questions.append(q)
         return ordered_questions
     
     def contrastive_word_order(self, en_doc, l1_doc):
