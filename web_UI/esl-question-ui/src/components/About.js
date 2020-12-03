@@ -1,8 +1,9 @@
 /*
  About page of application: talks about the research, implications, assumptions, and future work
 */
-import { Link } from 'react-router';
 import React from 'react';
+import { Link } from 'react-router';
+
 import '../css/App.css';
 
 export default class About extends React.Component {

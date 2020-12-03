@@ -3,12 +3,13 @@
 */
 import React from 'react';
 import { Link } from 'react-router';
+import axios from 'axios';
 import { useLoading, Puff } from '@agney/react-loading';
+
 import '../css/App.css';
 import '../css/Quiz.css';
+
 import Quiz from 'react-quiz-component';
-import { getQuestions, getPassageByLen } from './API_interface'
-import axios from 'axios';
 
 function GetLoadAnimation() {
     const { containerProps, indicatorEl } = useLoading({
@@ -84,7 +85,7 @@ class QuizContent extends React.Component {
         console.log(answers)
         let questionObject = {
             "quizTitle": this.props.topic.replace(/_/g, ' '),
-            "quizSynopsis": "These are the reading comprehension questions from the passage that were selected for you as they have features that might make them more difficult for native " + this.state.l1 + " speakers",
+            "quizSynopsis": "These are the reading comprehension questions from the passage that were selected for you as they have features that might make them more difficult for native " + this.l1 + " speakers",
             "questions": []
         }
         response['Questions'].forEach(q => 

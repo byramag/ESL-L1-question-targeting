@@ -3,9 +3,9 @@
 */
 import React from 'react';
 import { Router, Route, browserHistory } from 'react-router';
-import { getTopics } from './API_interface';
-import '../css/App.css';
 import axios from 'axios';
+
+import '../css/App.css';
 
 import Home from './Home'
 import About from './About'

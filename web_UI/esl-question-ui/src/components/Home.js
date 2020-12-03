@@ -1,9 +1,10 @@
 /*
  Welcome/Home page of application
 */
-import { Link } from 'react-router';
-import '../css/App.css';
 import React from 'react';
+import { Link } from 'react-router';
+
+import '../css/App.css';
 import eslqlogo from '../image-assets/esl-q-logo.svg';
 
 class Home extends React.Component {

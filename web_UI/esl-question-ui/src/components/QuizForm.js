@@ -1,12 +1,12 @@
 /*
  Quiz page: handles the actual question interation and answers
 */
-import { Link } from 'react-router';
-import '../css/Quiz.css';
-import { Form } from 'react-bootstrap';
 import React from 'react';
-import { getNumQuestions, getPassage } from './API_interface'
+import { Link } from 'react-router';
+import { Form } from 'react-bootstrap';
 import axios from 'axios';
+
+import '../css/Quiz.css';
 
 function getRange(num) {
   return [...Array(num).keys()]
