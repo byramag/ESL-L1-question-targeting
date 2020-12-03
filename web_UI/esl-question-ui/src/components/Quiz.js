@@ -83,9 +83,10 @@ class QuizContent extends React.Component {
         console.log(response)
         let answers = this.getAnswers(response['Questions'])
         console.log(answers)
+        let synopsis = this.l1 ? "These selected questions have features that might make them more difficult for native " + this.l1 + " speakers, so they'll give you extra practice." : "This is the default ordering of reading comprehension questions not targeted toward any particular native language"
         let questionObject = {
             "quizTitle": this.props.topic.replace(/_/g, ' '),
-            "quizSynopsis": "These selected questions have features that might make them more difficult for native " + this.l1 + " speakers, so they'll give you extra practice.",
+            "quizSynopsis": synopsis,
             "questions": []
         }
         response['Questions'].forEach(q => 
@@ -163,7 +164,7 @@ class QuizContent extends React.Component {
                     <div>
                         <Quiz className='quiz' 
                             quiz={this.state.quiz} 
-                            showInstantFeedback={true}
+                            // showInstantFeedback={true}
                             continueTillCorrect={true}
                             showDefaultResult={false}
                             onComplete={quizCompleteAction}

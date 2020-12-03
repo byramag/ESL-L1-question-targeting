@@ -1,0 +1,9 @@
+.about-text {
+    background-color: rgb(231, 230, 230);
+    text-align: left;
+    width: 90%;
+    border: 12px solid green;
+    padding: 30px;
+    margin: 20px;
+    color: black
+}
