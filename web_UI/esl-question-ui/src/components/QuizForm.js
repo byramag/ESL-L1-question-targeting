@@ -6,6 +6,7 @@ import '../css/Quiz.css';
 import { Form } from 'react-bootstrap';
 import React from 'react';
 import { getNumQuestions, getPassage } from './API_interface'
+import axios from 'axios';
 
 function getRange(num) {
   return [...Array(num).keys()]
@@ -15,41 +16,60 @@ class QuizForm extends React.Component{
 
   constructor(props) {
     super(props)
-    this.topics = this.props.topics;
-    console.log('in form topics is')
-    console.log(this.topics)
-
-    this.paragraphs = [];
-    this.questions = [];
-    this.l1 = null;
-    this.numParagraphs = 0;
-    // this.randomizePara = false; // TODO
-    this.numQuestions = 0;
+    this.state = {
+      topics: this.props.topics,
+      selectedTopic: undefined,
+      l1: '',
+      numParagraphs: 1,
+      numQuestions: 1,
+      maxPara: 1,
+      maxQues: 1
+    }
   }
 
   handleTopicChange(event) {
     let value = event.target.value;
-    this.topic = value
-    console.log('topic is now ' + this.topic)
-    this.paragraphs = getPassage(this.topic)
-    console.log('set passage paragraphs to ' + this.paragraphs)
-    console.log('test pra len ' + this.paragraphs.length)   
+    this.setState({ selectedTopic: value }, () => {
+      console.log('topic is now ' + this.state.selectedTopic)
+    });
+    axios.post("https://esl-question-generator-qadjhsafva-ue.a.run.app/passage", 
+    {
+        "Title": value,
+        "NumParagraphs": 0
+    })
+    .then(response => {
+      this.setState({ maxPara: response.data.length });
+      console.log(this.state.maxPara)
+    });
   }
   handleNumParaChange(event) {
-    let value = event.target.value;
-    this.numParagraphs = value
-    console.log('num para is now ' + this.numParagraphs)
-    this.numTotalQuestions = getNumQuestions(this.topic, this.numParagraphs)
+    let value = parseInt(event.target.value);
+    this.setState({ numParagraphs: value}, () => {
+      console.log('num para is now ' + this.state.numParagraphs)
+    });
+    axios.post("https://esl-question-generator-qadjhsafva-ue.a.run.app/questions", 
+    {
+        "Title": this.state.selectedTopic,
+        "NumParagraphs": value,
+        "NumQuestions": 0,
+        "L1Target": "" // no L1 to speed up call
+    })
+    .then(response => {
+      this.setState({ maxQues: response.data['Questions'].length });
+      console.log(this.state.maxQues)
+    });
   }
   handleL1Change(event) {
     let value = event.target.value;
-    this.l1 = value
-    console.log('L1 is now ' + this.l1)
+    this.setState({ l1: value}, () => {
+      console.log('L1 is now ' + this.state.l1)
+    });
   }
   handleNumQuesChange(event) {
-    let value = event.target.value;
-    this.numQuestions = value
-    console.log('num ques is now ' + this.numQuestions)
+    let value = parseInt(event.target.value);
+    this.setState({ numQuestions: value}, () => {
+      console.log('num ques is now ' + this.state.numQuestions)
+    });
   }
 
   render() {
@@ -79,23 +99,24 @@ class QuizForm extends React.Component{
                 as="select" 
                 name='topic' 
                 onChange={this.handleTopicChange.bind(this)}>
-              {this.topics.map(item => (
-                <option
-                  key={item}
-                  value={item}>
-                  {item}
-                </option>
-              ))}
+                  <option>Select a Topic</option>
+                  {this.state.topics.map(item => (
+                    <option
+                      key={item}
+                      value={item}>
+                      {item.replace(/_/g, ' ')}
+                    </option>
+                  ))}
             </Form.Control>
           </Form.Group>
           <Form.Group className="QuizFormElement" controlId="numParaRange">
-            <Form.Label className="QuizFormLabel" >Number of paragraphs to read</Form.Label>
+            <Form.Label className="QuizFormLabel" >Number of paragraphs to read (maximum depends on the topic you selected)</Form.Label>
             <Form.Control
                   as="select"
                   name='numParagraphs' 
                   defaultValue='All'
                   onChange={this.handleNumParaChange.bind(this)}>
-              {getRange(10).map(item => (
+              {getRange(this.state.maxPara).map(item => (
                 <option
                   key={item+1}
                   value={item+1}>
@@ -112,13 +133,13 @@ class QuizForm extends React.Component{
               />
           </Form.Group> */}
           <Form.Group className="QuizFormElement" controlId="formBasicRange">
-            <Form.Label className="QuizFormLabel" >Number of questions (max will scale with number of paragraphs)</Form.Label>
+            <Form.Label className="QuizFormLabel" >Number of questions (maximum will scale with number of paragraphs)</Form.Label>
             <Form.Control
                   as="select"
                   name='numQuestions' 
                   defaultValue='All'
                   onChange={this.handleNumQuesChange.bind(this)}>
-              {getRange(20).map(item => (
+              {getRange(this.state.maxQues).map(item => (
                 <option
                   key={item+1}
                   value={item+1}>
@@ -137,7 +158,8 @@ class QuizForm extends React.Component{
             />
           </Form.Group> */}
           <Link to="/quiz"><button className="myButton" onClick={() =>
-            this.props.handler(this.l1, this.topic,this.numParagraphs, this.numQuestions)}>
+            this.props.handler(this.state.l1, this.state.selectedTopic, 
+              this.state.numParagraphs, this.state.numQuestions)}>
               Start Quiz
           </button>
           </Link>

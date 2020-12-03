@@ -10,8 +10,8 @@ class Home extends React.Component {
 
     render() {
         return (
-            <div className="Home">
             <body className="App-body">
+            <div className="Home">
                 <img src={eslqlogo} className="App-logo" alt="logo" />
                 <h1>Welcome to the ESL Question Targeter {this.props.isAuthed}</h1>
                 <p>
@@ -27,8 +27,7 @@ class Home extends React.Component {
                     Click Here to Get Started!
                 </button>
                 </Link>
-            </body>
-            </div>
+            </div></body>
         );
     }
 }

@@ -29,7 +29,7 @@
     background-color: #5fb37b; /**/
     min-height: 100vh;
     display: flex;
-    width: 85%;
+    width: 90%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -50,7 +50,7 @@ text-decoration: none;
 .readPassage {
     background-color: rgb(231, 230, 230);
     text-align: left;
-    width: 85%;
+    width: 90%;
     border: 12px solid green;
     padding: 30px;
     margin: 20px;
@@ -60,7 +60,7 @@ text-decoration: none;
 .review {
     background-color: rgb(231, 230, 230);
     text-align: left;
-    width: 85%;
+    width: 90%;
     border: 2px solid black;
     padding: 30px;
     margin: 20px;
@@ -81,6 +81,10 @@ text-decoration: none;
 
 .Quiz-body {
     float: left !important;
+}
+
+.quiz {
+    width: 90%;
 }
 
 .QuizFormElement {
